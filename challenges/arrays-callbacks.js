@@ -30,17 +30,6 @@ console.log(displayNames);
 /* Request 2: .map()
 
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
-
-*/
-
-/* const lowCaseAnimalNames = [];
-for(let i = 0; i < data.length; i++) {
-  let mappedObj = {};
-  mappedObj.animal_name = data[i].animal_name;
-  lowCaseAnimalNames.push(mappedObj);
-  mappedObj = {};
-}
-*/
 /*
 const lowCaseAnimalNames = zooAnimals.map((animals) => {
   return {'names': animals.animal_name}
@@ -80,20 +69,32 @@ console.log(populationTotal);
 
 function consume(a, b, cb){
 cb = (a, b);
-return `${a} eating all of its ${b}`; 
+return `${a} ${b}`; 
 }
-console.log(consume(4, 'dinner'));
+console.log(consume(4, 2));
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
+function calc(num1, num2, cb){
+  return cb(num1, num2)
+}
+const add = function(num1, num2){
+   return (num1 + num2);
+  }
+const multiply = (num1, num2) => num1 * num2;
+
+function greeting(first, last){
+  return `Hello ${first} ${last}, nice to meet you`;
+}
+
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+ console.log(consume(2, 2, add)); // 4
+ console.log(consume(10, 16, multiply)); // 160
+ console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
