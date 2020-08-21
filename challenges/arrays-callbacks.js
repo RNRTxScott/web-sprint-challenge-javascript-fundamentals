@@ -46,17 +46,29 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 /*
-const lowPopulationAnimals
-console.log(lowPopulationAnimals);
-*/
+const lowPopulationAnimals = [];
+for(let i = 0; i < zooAnimals.length; i++){
+  if (zooAnimals[i].population <= 5) {
+    lowPopulationAnimals.push(zooAnimals[i]);
+  }
+}*/
+
+const filterLowPopulationAnimals = zooAnimals.filter((population) => {
+  return population <= 5;
+});
+console.log(filterLowPopulationAnimals);
+
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
 let populationTotal = 0;
+const anything = zooAnimals.population;
+let population = zooAnimals.reduce((acc, currentValue) =>{
+  return acc += currentValue.population;
+}, 1);
 console.log(populationTotal);
-
 
 // ==== Callbacks ====  
 
@@ -71,7 +83,7 @@ function consume(a, b, cb){
 cb = (a, b);
 return `${a} ${b}`; 
 }
-console.log(consume(4, 2));
+console.log(consume('anything', 2));
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
   * Create a function named multiply that returns the product of two numbers 
@@ -95,10 +107,6 @@ function greeting(first, last){
  console.log(consume(2, 2, add)); // 4
  console.log(consume(10, 16, multiply)); // 160
  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
-
-
-
-
 /*
 
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
